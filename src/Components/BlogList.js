@@ -3,13 +3,14 @@ import { connect, } from 'react-redux';
 import Blog from "./Blog";
 
 const BlogList = ({ blogs }) => (
-  <ul style ={{ display: "flex", alignItems: "center", flexDirection: "column"}}>
+  <div style ={{ display: "flex", alignItems: "center", flexDirection: "column"}}>
     { 
        blogs.map (blog => {
         return ( <Blog key={blog.id} {...blog} /> )
+        /// how to display the body??
       })
     }
-  </ul>
+  </div>
 )
 
 const mapStateToProps = (state) => {

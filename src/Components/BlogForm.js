@@ -2,31 +2,38 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 class BlogForm extends React.Component {
-  state = { title: '',  };
+  state = { title: '', body: "" };
 
-  handleChange = (e) => {
-    this.setState({ title: e.target.value, });
+  handleChange = ({target: {name, value}}) => {
+    this.setState({ 
+      [name]: value 
+     })
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { dispatch, id } = this.props;
-    const { title, } = this.state;
-    const blog = { title, id, complete: false }
-    dispatch({ type: "ADD_BLOG", blog });
+    const { title, body } = this.state;
+    const blog = { title, body, id, complete: false }
+    dispatch({ type: "ADD_BLOG", blog: { title, body } });
     dispatch({ type: "INC_ID"});
-    this.setState({ title: '', });
+    this.setState({ title: '', body: "" });
   }
 
 
   render() {
-    const { title, } = this.state;
+    const { title, body } = this.state;
 
     return (
       <div>
         <h3>Add A Blog Post</h3>
         <form onSubmit={this.handleSubmit}>
-          <input name = "title" value={title} onChange={this.handleChange} />
+          <input name = "title" value={title} placeholder = "Title" onChange={this.handleChange} />
         </form>
+        <form onSubmit={this.handleSubmit}>
+          <input name = "body" value={body} placeholder = "Blog Post" onChange={this.handleChange} />
+        </form>
+
       </div>
     )
   }
