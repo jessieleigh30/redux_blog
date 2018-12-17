@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import Blog from "./Blog";
 
 const BlogList = ({ blogs }) => (
-  <ul>
-    { blogs.map( (t,i) => {
-      return (
-        <li key={i}>
-          {t}
-        </li>
-      )
-     })
+  <ul style ={{ display: "flex", alignItems: "center", flexDirection: "column"}}>
+    { 
+       blogs.map (blog => {
+        return ( <Blog key={blog.id} {...blog} /> )
+      })
     }
   </ul>
 )
