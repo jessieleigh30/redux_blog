@@ -26,7 +26,7 @@ class BlogForm extends React.Component {
 
     return (
       <div>
-        <h3>Add A Blog Post</h3>
+        <h1>Add A Blog Post</h1>
         <form onSubmit={this.handleSubmit}>
           <input name = "title" value={title} placeholder = "Title" onChange={this.handleChange} />
         </form>
