@@ -2,6 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import Blog from "./Blog";
 
+
 const BlogList = ({ blogs }) => (
   <div style ={{ display: "flex", alignItems: "center", flexDirection: "column"}}>
     { 

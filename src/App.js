@@ -1,15 +1,15 @@
 import React from 'react';
-import BlogList from './Components/BlogList';
-import BlogForm from './Components/BlogForm';
+import {Route, Switch} from 'react-router-dom';
+import Home from "./Components/Home";
+import styled from 'styled-components';
 
 
 import './App.css';
 
 const App = () => ( 
-  <div className="App">
-    <BlogForm />
-    <BlogList />
-  </div>
+  <Switch>
+    <Route exact path="/" component = {Home} />
+  </Switch>
 );
 
 
