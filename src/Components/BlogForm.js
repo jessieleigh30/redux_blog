@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import styled from "styled-components";
 
 class BlogForm extends React.Component {
   state = { title: '', body: "" };
@@ -25,8 +26,8 @@ class BlogForm extends React.Component {
     const { title, body } = this.state;
 
     return (
-      <div>
-        <h3>Add A New Blog Post</h3>
+      <Container>
+        <HeaderTwo>Add A New Blog Post</HeaderTwo>
         <form onSubmit={this.handleSubmit}>
           <input name = "title" value={title} placeholder = "Title" onChange={this.handleChange} />
         </form>
@@ -34,10 +35,25 @@ class BlogForm extends React.Component {
           <input name = "body" value={body} placeholder = "Blog Post" onChange={this.handleChange} />
         </form>
 
-      </div>
+       </Container>
     )
   }
 }
+
+
+const Container = styled.div `
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`
+
+const HeaderTwo = styled.h3 `
+  color: #379683;
+`
 
 const mapStateToProps = (state) => {
   return { id: state.nextId, };
